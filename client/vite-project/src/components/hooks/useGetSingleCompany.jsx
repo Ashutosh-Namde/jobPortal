@@ -19,7 +19,7 @@ const useGetSingleCompany = (companyId) => {
             const res =await axios.get(`${API}/company/single/${companyId}`,{withCredentials:true})
             if(res.data.success){
                 dispatch(setSingleCompany(res.data.company))
-                console.log(res.data.company,"use effect");
+                // console.log(res.data.company,"use effect");
                 
             }
           

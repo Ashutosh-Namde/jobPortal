@@ -22,7 +22,7 @@ const JobSetup = () => {
           try{
       const res = await axios.get(`${API}/application/${jobId}/applicants`,{withCredentials:true})
       if(res.data.success)
-        console.log(res.data);
+        // console.log(res.data);
       dispatch(setAllApplicants(res.data.job))
 
       

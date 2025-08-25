@@ -53,7 +53,7 @@ const submitHandeler = async (e) => {
     },
     withCredentials:true
   })
-  console.log(result.data , "data signup");
+  // console.log(result.data , "data signup");
   if(result.data.success){
           dispatch(setUser(result.data.user))
     

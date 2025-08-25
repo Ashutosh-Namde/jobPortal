@@ -16,17 +16,17 @@ const postJobController = async (req,res) => {
     experience,
   } = req.body;
   const userId = req.id
-  console.log(  title,
-    description,
-    salary,
-    location,
-    requirements,
-    jobType,
-    position,
-    companyId,
-    experience,);
+  // console.log(  title,
+  //   description,
+  //   salary,
+  //   location,
+  //   requirements,
+  //   jobType,
+  //   position,
+  //   companyId,
+  //   experience,);
   
-console.log(userId,"user id");
+// console.log(userId,"user id");
 
   if (
     !title ||
@@ -115,7 +115,7 @@ const getJobById = async (req,res) => {
 const getAdminJobs = async (req,res) => {
    try {
    const adminId = req.id
-   console.log(adminId,"admin");
+  //  console.log(adminId,"admin");
    
   const job = await Job.find({created_by:adminId}).populate({path:"company"})
    if(!job){

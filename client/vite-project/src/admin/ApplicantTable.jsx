@@ -25,12 +25,12 @@ const shortListingStatus = ["Accepted", "Rejected"];
 const ApplicantTable = () => {
 
   const {allApplicants} = useSelector(store=>store.applicant)
-  console.log(allApplicants);
+  // console.log(allApplicants);
 
   const statusHandeler = async(id,status)=>{
 try {
   const res = await axios.post(`${API}/application/updateStatus/${id}`,{status},{withCredentials:true})
-  console.log(res.data);
+  // console.log(res.data);
   
 } catch (error) {
   console.log("error in staus update ",error);

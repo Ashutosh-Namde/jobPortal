@@ -34,10 +34,10 @@ const Login = () => {
     
     withCredentials:true
   })
-  console.log(result.data , "data login");
+  // console.log(result.data , "data login");
    if(result.data.success){
       dispatch(setUser(result.data.user))
-      console.log(result.data.user);
+      // console.log(result.data.user);
       
       toast.success(result.data.message)
     }

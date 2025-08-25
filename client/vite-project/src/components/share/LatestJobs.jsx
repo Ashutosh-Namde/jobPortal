@@ -14,9 +14,9 @@ const LatestJobs = () => {
   const navigate =useNavigate()
   
   return (
-    <div className='w-full  mb-5'>
+    <div className='max-w-7xl mx-auto g mb-5'>
         <h1 className='text-3xl pl-25 font-semibold '><span className='text-blue-500 '> Latests & Top</span> Jobs Opening</h1>
-     <div  className='flex flex-wrap items-center justify-center gap-7' >
+     <div  className='grid grid-cols-3 gap-5 ' >
         {allJobs.length <= 0 ? <span>No Job Available</span>: allJobs?.slice(0,6).map((data)=>(
         <LatestJobsCard key={data.id} job={data}/>
      ))}

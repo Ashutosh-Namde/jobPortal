@@ -22,7 +22,7 @@ const CategoryCarousel = () => {
 const navigate = useNavigate()
 const dispatch = useDispatch() 
     const setSearchHandeler = (query)=>{
-      console.log(query);
+      // console.log(query);
       dispatch(setSearchQuery(query))
       navigate("/browse")
     }

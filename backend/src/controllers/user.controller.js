@@ -9,10 +9,10 @@ const registrationController = async(req,res)=>{
     try {
         
     const {fullname , email , password , phoneNumber , role } = req.body;
-    console.log(fullname , email , password , phoneNumber , role);
+    // console.log(fullname , email , password , phoneNumber , role);
 
   const file = req.file;
-    console.log(file);
+    // console.log(file);
     
     const fileUri = getDataUri(file)
     const cloudResponse = await cloudinary.uploader.upload(fileUri.content)
@@ -47,7 +47,7 @@ const registrationController = async(req,res)=>{
     }
 
     const token = await jwt.sign(tokenData,process.env.SECRETE_KEY,{expiresIn:"7d"})
-    console.log(token,"register");
+    // console.log(token,"register");
 
 
         return res.status(200).cookie("token" , token , {maxAge:7*24*60*60*1000,httpOnly:true , sameSite:"strict"}).json({message:`Account Created Successfully  ${user.fullname} `, success:true , user})
@@ -144,7 +144,7 @@ const updateProfileController = async (req,res) => {
             user.profile.resume = cloudResponse.secure_url //save the cloudnary url
             user.profile.resumeOriginalName = file.originalname // Save the original file name
         }
-console.log(cloudResponse.secure_url ,"secul");
+// console.log(cloudResponse.secure_url ,"secul");
 
         await user.save()
         

@@ -14,7 +14,7 @@ const JobTable = () => {
     const navigate = useNavigate()
     const{allAdminJobs,searchJobByText} = useSelector(store=>store.job)
     const [filterJobData, setfilterJobData] = useState(allAdminJobs)
-    console.log(allAdminJobs,"admin2");
+    // console.log(allAdminJobs,"admin2");
     
     useEffect(()=>{
       const filteredJobData = allAdminJobs.length >= 0 && allAdminJobs.filter((job)=>{

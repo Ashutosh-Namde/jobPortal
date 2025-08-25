@@ -7,7 +7,7 @@ const cloudinary = require("../utils/cloundnary");
 const registerCompany = async (req,res) => {
    try {
      const {name} = req.body;
-     console.log(name);
+    //  console.log(name);
      
     if(!name){
         return res.status(400).json({message:"something missing" , success:false})
@@ -55,7 +55,7 @@ const getAllCompany = async (req,res) => {
 const getCompanyById= async (req,res) => {
     try {
         const companyId = req.params.id
-        console.log(companyId);
+        // console.log(companyId);
         
 
     const company = await Company.findById(companyId)

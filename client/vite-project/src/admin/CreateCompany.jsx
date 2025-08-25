@@ -10,7 +10,7 @@ const CreateCompany = () => {
   const navigate = useNavigate()
   const [companyName, setcompanyName] = useState("")
 
-  console.log(companyName);
+  // console.log(companyName);
   
   const registerNewCompany = async () => {
     try {

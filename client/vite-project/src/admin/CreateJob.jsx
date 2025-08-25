@@ -36,14 +36,14 @@ const CreateJob = () => {
     setinput({ ...input, [e.target.name]: e.target.value });
   };
   const handleSelectSubmit = (value)=>{
-    console.log(value,"value");
+    // console.log(value,"value");
     
     const selectedCompany = allCompany.find((company)=>{
        return company?.name?.toLowerCase() == value
         // console.log(company.name,"company");
         
     })
-    console.log(selectedCompany);
+    // console.log(selectedCompany);
     
     setinput({...input,companyId:selectedCompany._id})
   }
@@ -58,7 +58,7 @@ withCredentials:true
         if(res.data.success){
             navigate("/admin/jobs")
             toast.success(res.data.message)
-            console.log(res.data);
+            // console.log(res.data);
             
         }
         

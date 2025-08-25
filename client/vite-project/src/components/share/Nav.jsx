@@ -97,12 +97,17 @@ const Nav = () => {
                 </p>
               </div>
             </div>
-            <div className="flex items-center ">
+            {
+              user && user.role == "student" && (
+<div className="flex items-center ">
               <User2 />
               <Link to={"/viewprofile"}>
               <Button variant="link">View Profile</Button>
               </Link>
             </div>
+              )
+            }
+            
             <div className="flex items-center">
                <LogOut className="ml-1 h-5 w-5" />
             <Button onClick={logoutHandeler} variant="link">Logout</Button>

@@ -74,7 +74,7 @@ const onSubmitHandeler = async(e)=>{
            dispatch(setLoading(false))
         }
         setopen(false);
-        console.log(input.file);
+        // console.log(input.file);
         
 }
 

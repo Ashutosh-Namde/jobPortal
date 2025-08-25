@@ -43,7 +43,7 @@ const FilterCard = () => {
   useEffect(()=>{
     dispatch(setSearchQuery(selectedValue))
 
-    console.log(selectedValue);
+    // console.log(selectedValue);
     
   },[selectedValue])
   return (

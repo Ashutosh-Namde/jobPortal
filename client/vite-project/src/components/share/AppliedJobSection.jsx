@@ -5,7 +5,7 @@ import React from 'react'
 
 const AppliedJobSection = () => {
     const {allAppliedJob} = useSelector(store => store.job)
-    console.log(allAppliedJob,"kk");
+    // console.log(allAppliedJob,"kk");
     
   return (
     <div>

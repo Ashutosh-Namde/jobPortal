@@ -27,7 +27,7 @@ const JobDescription = () => {
       const applyJobHandeler = async()=>{
         try {
             const res = await axios.get(`${API}/application/applyJob/${jobId}`,{withCredentials:true})
-            console.log(res.data,"loh");
+            // console.log(res.data,"loh");
               if(res.data.success){
                 setIsApplied(true); // Update the local state
                 const updatedSingleJob = {...singleJob, applications:[...singleJob.applications,{applicant:user?._id}]}

@@ -26,8 +26,8 @@ const HeroSection = () => {
         <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Cupiditate ducimus earum deleniti.</p>
        <div className='w-full flex items-center  justify-center
        mt-3 '>
-         <input type="text" onChange={(e)=>{setquery(e.target.value)}} className='w-[40%]  p-1 rounded-full px-3' placeholder='Find your dream jobs' />
-        <Button onClick={setSearchHandeler} className="rounded-r-full left-[-10] absolute right-98 bg-blue-800 " >
+         <input type="text" onChange={(e)=>{setquery(e.target.value)}} className='w-[40%]  p-1.5 border rounded-full px-3' placeholder='Find your dream jobs' />
+        <Button onClick={setSearchHandeler} className="rounded-r-full  absolute right-[430px] bg-blue-800 " >
             <Search className=''/>
         </Button>
        </div>
