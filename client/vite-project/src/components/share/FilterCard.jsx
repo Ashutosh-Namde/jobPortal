@@ -43,11 +43,11 @@ const FilterCard = () => {
   useEffect(()=>{
     dispatch(setSearchQuery(selectedValue))
 
-    // console.log(selectedValue);
+    console.log(selectedValue);
     
   },[selectedValue])
   return (
-    <div>
+    <div className='pl-8'>
         <h1>Filter Jobs</h1>
         <hr className='mt-3 mb-2'/>
 
