@@ -1,1 +1,1 @@
-export const API = "http://localhost:3000"
+export const API = "https://jobportal-7-7u7k.onrender.com"
