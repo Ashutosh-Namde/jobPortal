@@ -1,1 +1,1 @@
-export const API = "job-portal-ashen-seven.vercel.app"
+export const API = "http://localhost:3000"

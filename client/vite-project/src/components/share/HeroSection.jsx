@@ -27,9 +27,12 @@ const HeroSection = () => {
        <div className='w-full flex items-center  justify-center
        mt-3 '>
          <input type="text" onChange={(e)=>{setquery(e.target.value)}} className='w-[40%]  p-1.5 border rounded-full px-3' placeholder='Find your dream jobs' />
-        <Button onClick={setSearchHandeler} className="rounded-r-full  absolute right-[430px] bg-blue-800 " >
-            <Search className=''/>
-        </Button>
+          <Button
+      onClick={setSearchHandeler}
+      className="absolute right-1 top-1 bottom-1 rounded-full bg-blue-800 px-3"
+    >
+      <Search />
+    </Button>
        </div>
     </div>
   )
