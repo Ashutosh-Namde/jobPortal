@@ -4,11 +4,11 @@ import { Input } from "../ui/input";
 import Nav from "../share/Nav";
 import {RadioGroup, RadioGroupItem} from '../ui/radio-group'
 import {Button} from "../ui/button"
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
 import { API } from "../utils/context";
 import { useDispatch, useSelector } from 'react-redux';
-import { setLoading } from "../../redux/authSlice";
+import { setLoading, setUser } from "../../redux/authSlice";
 import { Loader2 } from "lucide-react";
 import { toast } from "sonner";
 
@@ -22,6 +22,7 @@ const Login = () => {
 
      const {loading} = useSelector(store=>store.auth)
      const dispatch = useDispatch()
+     const navigate = useNavigate()
 
     const handleClickHandeler = async()=>{
      try {
@@ -33,8 +34,11 @@ const Login = () => {
     
     withCredentials:true
   })
-  console.log(result.data , "data");
+  console.log(result.data , "data login");
    if(result.data.success){
+      dispatch(setUser(result.data.user))
+      console.log(result.data.user);
+      
       toast.success(result.data.message)
     }
      } catch (error) {
@@ -45,6 +49,7 @@ const Login = () => {
      }
      finally{
       dispatch(setLoading(false))
+      navigate("/")
      }
         
     }

@@ -12,12 +12,21 @@ const postJobController = async (req,res) => {
     requirements,
     jobType,
     position,
-    company,
-    created_by,
-
+    companyId,
     experience,
   } = req.body;
   const userId = req.id
+  console.log(  title,
+    description,
+    salary,
+    location,
+    requirements,
+    jobType,
+    position,
+    companyId,
+    experience,);
+  
+console.log(userId,"user id");
 
   if (
     !title ||
@@ -27,7 +36,7 @@ const postJobController = async (req,res) => {
     !requirements ||
     !jobType ||
     !position ||
-    !company ||
+    !companyId ||
     
 
     !experience
@@ -44,7 +53,7 @@ const postJobController = async (req,res) => {
     requirements:requirements.split(","),
     jobType,
     position,
-    company,
+    company:companyId,
     created_by:userId,
     experience,
   });
@@ -67,7 +76,7 @@ const getAllJob = async (req,res) => {
       {description:{$regex:keyword,$options:"i"}}
     ]
   }
-  const job = await Job.find(query)
+  const job = await Job.find(query).populate({path:"company"})
   if(!job){
     return res
       .status(400)
@@ -86,7 +95,8 @@ const getAllJob = async (req,res) => {
 const getJobById = async (req,res) => {
  try {
    const jobId = req.params.id
-  const job = await Job.findById(jobId)
+  const job = await Job.findById({_id:jobId}).populate({path:"applications"
+})
    if(!job){
     return res
       .status(400)
@@ -105,7 +115,9 @@ const getJobById = async (req,res) => {
 const getAdminJobs = async (req,res) => {
    try {
    const adminId = req.id
-  const job = await Job.find({created_by:adminId})
+   console.log(adminId,"admin");
+   
+  const job = await Job.find({created_by:adminId}).populate({path:"company"})
    if(!job){
     return res
       .status(400)

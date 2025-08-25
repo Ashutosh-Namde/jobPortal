@@ -8,7 +8,7 @@ const router = express.Router()
 
 router.post("/register" , singleUpload,registrationController)
 router.post("/login" , loginController)
-router.post("/profile/update" , isAuth , updateProfileController)
+router.post("/profile/update" , isAuth ,singleUpload, updateProfileController)
 router.delete("/logout"  , logoutController)
 
 module.exports = router

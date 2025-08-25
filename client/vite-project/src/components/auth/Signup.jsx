@@ -4,11 +4,11 @@ import { Input } from "../ui/input";
 import Nav from "../share/Nav";
 import {RadioGroup, RadioGroupItem} from '../ui/radio-group'
 import {Button} from "../ui/button"
-import { Form, Link } from "react-router-dom";
+import { Form, Link, useNavigate } from "react-router-dom";
 import axios from 'axios'
 import { API } from "../utils/context";
 import { useDispatch, useSelector } from "react-redux";
-import { setLoading } from "../../redux/authSlice";
+import { setLoading, setUser } from "../../redux/authSlice";
 import { Loader2 } from "lucide-react";
 import { toast } from "sonner";
 const Signup = () => {
@@ -22,11 +22,12 @@ const Signup = () => {
 
          const {loading} = useSelector(store=>store.auth)
          const dispatch = useDispatch()
+         const navigate = useNavigate()
 
-    const handleClickHandeler = ()=>{
-        console.log(name , email , phoneNumber , password , role , file);
+    // const handleClickHandeler = ()=>{
+    //     // console.log(name , email , phoneNumber , password , role , file);
         
-    }
+    // }
 const submitHandeler = async (e) => {
    try {
          dispatch(setLoading(true))
@@ -43,7 +44,7 @@ const submitHandeler = async (e) => {
   formdata.append("file",file)
     
   }
-console.log(`${API}/register`);
+// console.log(`${API}/register`);
 
 
    const result = await axios.post(`${API}/user/register` , formdata,{
@@ -52,9 +53,12 @@ console.log(`${API}/register`);
     },
     withCredentials:true
   })
-  console.log(result.data , "data");
+  console.log(result.data , "data signup");
   if(result.data.success){
+          dispatch(setUser(result.data.user))
+    
     toast.success(result.data.message)
+   
   }
   
  } catch (error) {
@@ -63,6 +67,7 @@ console.log(`${API}/register`);
  }
    finally{
        dispatch(setLoading(false))
+        navigate("/")
       }
 
 }
@@ -106,12 +111,12 @@ console.log(`${API}/register`);
 </RadioGroup>
 <div className="flex  w-full max-w-sm items-center justify-end gap-3 mt-5">
       <Label htmlFor="picture">Profile</Label>
-      <Input className="w-80 cursor-pointer" accept="image/*" value={file} onChange={(e)=>{setfile(e.target.value)}} type="file" />
+      <Input className="w-80 cursor-pointer" accept="image/*"    onChange={(e) => setfile(e.target.files[0])} type="file" />
     </div>
           </div>
 
     {loading ? <Button className={"w-full mt-5"}><Loader2 className="mr-2 h-4 w-4 animate-spin"/>please wait</Button> : 
-          <Button type="submit" onClick={handleClickHandeler} className="w-full mt-5">Submit</Button>
+          <Button type="submit"  className="w-full mt-5">Submit</Button>
          }
           
           <h4 className="mt-4">Already have an account?<Link to="/login" className="text-blue-800 font-semibold"> Login</Link></h4>

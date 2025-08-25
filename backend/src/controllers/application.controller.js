@@ -62,7 +62,7 @@ const getAppliedJob = async (req,res) => {
         return res.status(400).json({message:"no applications" , succes:false})
 
         }
-    return res.status(200).json({message:"applications fatch succesfully" , application, succes:true ,})
+    return res.status(200).json({message:"applications fatch succesfully" , application, success:true ,})
 
         
     } catch (error) {
@@ -89,12 +89,12 @@ const getApplicants = async (req,res) => {
         return res.status(400).json({message:"job not found" , succes:false})
 
     }
-    return res.status(200).json({message:"total applicants fetch successfully" ,job, succes:true ,})
+    return res.status(200).json({message:"total applicants fetch successfully" ,job, success:true ,})
 
    } catch (error) {
       console.log(error);
         
-        return res.status(400).json({message:"error in getall applicants to applied job" , success:false})
+     return res.status(400).json({message:"error in getall applicants to applied job",error , success:false})
  
    }
 

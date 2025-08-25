@@ -2,19 +2,30 @@ import React from 'react'
 import Nav from '../share/Nav'
 import HeroSection from '../share/HeroSection'
 import CategoryCarousel from '../share/CategoryCarousel'
+import LatestJobs from '../share/LatestJobs'
+import Footer from '../share/Footer'
+import { useEffect } from 'react'
+import { useSelector } from 'react-redux'
+import { useNavigate } from 'react-router-dom'
 
 const Home = () => {
-  console.log("home page");
+  // console.log("home page");
+const {user} = useSelector(store=>store.auth)
+const navigate = useNavigate()
+  useEffect(()=>{
+   if(user?.role == "recruiter"){
+    navigate("/admin/companies")
+   }
+  })
   
   return (
     <div>
          <Nav/>
          <HeroSection/>
          <CategoryCarousel/>
-         {/* <LatestJobs/> */}
-         {/* <Footer/> */}
-         ye hamara home h beta
-        Home21234567890 1234567890-1234567890-12345678901234567890234567890 Lorem ipsum dolor, sit amet consectetur adipisicing elit. Explicabo neque eaque suscipit recusandae saepe esse placeat, illo optio eum dignissimos, modi numquam ab ad rerum repudiandae ipsam ullam debitis corporis? Cumque rerum quam, molestiae illum magni, officia sed quidem veniam ab explicabo tempore, a unde! Magni possimus saepe repellendus provident iure perferendis cupiditate porro, ut assumenda a, unde cum alias maiores ab recusandae perspiciatis animi ratione laboriosam ex, nisi architecto. Aliquid vero aut neque autem esse delectus beatae ut similique voluptate, qui temporibus libero voluptatem nam nisi vel? Autem ad eaque tenetur, animi eveniet consequuntur consectetur fugit saepe rem reprehenderit?</div>
+         <LatestJobs/>
+         <Footer/>
+         </div>
   )
 }
 
