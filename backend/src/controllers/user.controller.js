@@ -96,7 +96,7 @@ const loginController = async (req,res) => {
         profile:user.profile
     }
 
-        return res.status(200).cookie("token" , token , {maxAge:7*24*60*60*1000,httpOnly:true , sameSite:"strict"}).json({message:`welcome back ${user.fullname}`, success:true , user})
+        return res.status(200).cookie("token" , token , {maxAge:7*24*60*60*1000,httpOnly:true , secure: process.env.NODE_ENV === "production", sameSite:"None"}).json({message:`welcome back ${user.fullname}`, success:true , user})
 
 
    } catch (error) {
