@@ -25,8 +25,11 @@ app.use("/company",companyRouter)
 app.use("/job",jobRouter)
 app.use("/application",applicationRouter)
 
-app.get("/", (req, res) => {
-  res.send("Backend API is running 🚀");
-});
+app.get('/',(req,res)=>{
+    res.send({
+        activeStatus:true,
+        error:false,
+    })
+})
 
 module.exports=app
