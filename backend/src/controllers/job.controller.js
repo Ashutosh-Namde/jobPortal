@@ -57,6 +57,7 @@ const postJobController = async (req,res) => {
     created_by:userId,
     experience,
   });
+  
 
   return res.status(200).json({message:"job created succesfully" , success:true , job})
   } catch (error) {

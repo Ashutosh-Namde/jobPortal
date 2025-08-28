@@ -5,7 +5,7 @@ const { postJobController, getAllJob, getJobById, getAdminJobs } = require("../c
 const jobRouter = express.Router()
 
 jobRouter.post("/post" , isAuth,postJobController)
-jobRouter.get("/allJobs" , isAuth,getAllJob)
+jobRouter.get("/allJobs",getAllJob)
 jobRouter.get("/singleJob/:id" , isAuth,getJobById)
 jobRouter.get("/adminJobs" , isAuth,getAdminJobs)
 

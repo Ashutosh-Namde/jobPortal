@@ -48,7 +48,7 @@ const CreateJob = () => {
     setinput({...input,companyId:selectedCompany._id})
   }
   const submitHandeler = async(e) => {
-    setLoading(true)
+    // dispatch(setLoading(true)); 
     e.preventDefault();
      try {
         const res = await axios.post(`${API}/job/post`,input,   {
@@ -68,7 +68,7 @@ withCredentials:true
         
      }
      finally{
-        setLoading(false)
+        // dispatch(setLoading(false)); 
      }
   };
   return (

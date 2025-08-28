@@ -14,8 +14,9 @@ const useGetApplicantsAll = () => {
      const res = await axios.get(`${API}/application/get`,{withCredentials:true})
     if(res.data.success){
         // console.log(res.data,"data");
+        toast.success(res.data.message)
+
         dispatch(setAllAppliedJob(res.data.application))
-        toast.success(res.data.success)
         
     }
    } catch (error) {

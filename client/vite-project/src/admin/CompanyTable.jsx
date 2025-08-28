@@ -42,7 +42,7 @@ const CompanyTable = () => {
                 <>
                 <TableBody>
                 <TableCell><Avatar>
-                    <AvatarImage src={company.logo}/>
+                    <AvatarImage className={"object-cover"} src={company.logo}/>
                     </Avatar></TableCell>
                 <TableCell>{company.name}</TableCell>
                 <TableCell>{company.createdAt.split("T")[0]}</TableCell>
