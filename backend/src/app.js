@@ -10,7 +10,8 @@ const app = express();
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(cookieParser());
-const corsOption = { origin: "http://localhost:5173", credentials: true };
+const allowedOrigins = ["http://localhost:5173","https://green-cart-ivory.vercel.app",];
+const corsOption = { origin: ["http://localhost:5173","job-portal-afxw-git-main-ashutosh-appnamdevs-projects.vercel" ],credentials: true };
 app.use(cors(corsOption));
 // Routes
 app.use("/user", router);
