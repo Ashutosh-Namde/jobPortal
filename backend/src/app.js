@@ -11,7 +11,7 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(cookieParser());
 // const allowedOrigins = ["http://localhost:5173","https://green-cart-ivory.vercel.app",];
-const corsOption = { origin: ["http://localhost:5173","jhttp://ob-portal-ashen-seven.vercel.app" ],credentials: true };
+const corsOption = { origin: ["http://localhost:5173","http://ob-portal-ashen-seven.vercel.app" ],credentials: true };
 app.use(cors(corsOption));
 // Routes
 app.use("/user", router);
