@@ -7,11 +7,11 @@ const isAuth = async (req,res,next) => {
     //  console.log(token);
      
     if(!token){
-        res.status(400).json({message:"user not authenticated" , success:false})
+       return res.status(400).json({message:"user not authenticated" , success:false})
     }
     const decode = await jwt.verify(token , process.env.SECRETE_KEY)
     if(!decode){
-        res.status(400).json({message:"Invalid token" , success:false})
+       return res.status(400).json({message:"Invalid token" , success:false})
 
     }
         // ✅ DB check for deleted user
@@ -25,7 +25,7 @@ const isAuth = async (req,res,next) => {
    } catch (error) {
     console.log(error);
     
-    res.status(400).json({message:"error in middleware" , error})
+  return  res.status(400).json({message:"error in middleware" , error})
    }
 }
 
