@@ -50,7 +50,7 @@ const registrationController = async(req,res)=>{
     // console.log(token,"register");
 
 
-        return res.status(200).cookie("token" , token , {maxAge:7*24*60*60*1000,httpOnly:true , secure: process.env.NODE_ENV === "production", sameSite:"strict"}).json({message:`Account Created Successfully  ${user.fullname} `, success:true , user})
+        return res.status(200).cookie("token" , token , {maxAge:7*24*60*60*1000,httpOnly:true , secure: process.env.NODE_ENV === "production", sameSite:"None"}).json({message:`Account Created Successfully  ${user.fullname} `, success:true , user})
 
     } catch (error) {
         return res.status(400).json({message:"error in registration", error})
