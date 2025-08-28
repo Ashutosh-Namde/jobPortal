@@ -6,12 +6,7 @@ config();
 connectDB()
 
 
-app.get('/',(req,res)=>{
-    res.send({
-        activeStatus:true,
-        error:false,
-    })
-})
+
 
 
 app.listen(process.env.PORT,()=>{
