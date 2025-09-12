@@ -26,6 +26,7 @@ import { useEffect } from "react";
 const shortListingStatus = ["Accepted", "Rejected"];
 
 const ApplicantTable = () => {
+  // const {getAllApplicants} = useGetApplicantsAll()
   useGetApplicantsAll()
   let newStatus ;
   let newId;
@@ -40,6 +41,7 @@ try {
   // console.log(res.data);
   if(res.data.success){
     toast.success(res.data.message);
+     await getAllApplicants()
   }
 
 

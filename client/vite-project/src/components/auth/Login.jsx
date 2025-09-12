@@ -30,10 +30,10 @@ const Login = () => {
        const result = await axios.post(`${API}/user/login` ,
         {
           email,password,role
-        },{
-    
-    withCredentials:true
-  })
+        },    {
+          withCredentials: true, 
+          headers: { "Content-Type": "application/json" },
+        })
   // console.log(result.data , "data login");
    if(result.data.success){
       dispatch(setUser(result.data.user))

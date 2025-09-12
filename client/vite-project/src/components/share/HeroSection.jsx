@@ -2,7 +2,7 @@ import { Search } from 'lucide-react'
 import React, { useState } from 'react'
 import { Button } from '../ui/button'
 import { useDispatch } from 'react-redux'
-import { setSearchQuery } from '../../redux/jobSlice'
+import { setSearchJobByText, setSearchQuery } from '../../redux/jobSlice'
 import { useNavigate } from 'react-router-dom'
 
 const HeroSection = () => {
@@ -11,8 +11,8 @@ const HeroSection = () => {
   const navigate = useNavigate()
 
   const setSearchHandeler = () => {
-    dispatch(setSearchQuery(query))
-    navigate("/browse")
+    dispatch(setSearchJobByText(query))
+    navigate("/jobs")
   }
 
   return (

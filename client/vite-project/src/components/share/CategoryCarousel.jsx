@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import {
   Carousel,
   CarouselContent,
@@ -7,6 +7,8 @@ import {
   CarouselNext
 } from '../ui/carousel'
 import { Button } from '../ui/button'
+import { setSearchJobByText, setSearchQuery } from '../../redux/jobSlice'
+import { useDispatch } from 'react-redux'
 
 const CategoryCarousel = () => {
   const category = [
@@ -16,6 +18,11 @@ const CategoryCarousel = () => {
     "Graphic Designer",
     "Full Stack Developer"
   ]
+  const dispatch = useDispatch();
+    const [selectedValue , setSelectedValue] = useState([])
+  
+  
+ 
 
   return (
     <div className="w-full max-w-5xl mx-auto my-10 px-4">
@@ -27,8 +34,9 @@ const CategoryCarousel = () => {
             <CarouselItem 
               key={index} 
               className="basis-1/1 sm:basis-1/2 lg:basis-1/3 flex justify-center"
+              
             >
-              <Button className="rounded-full px-6 py-3 text-base w-fit">
+              <Button  className="rounded-full px-6 py-3 text-base w-fit">
                 {cat}
               </Button>
             </CarouselItem>
